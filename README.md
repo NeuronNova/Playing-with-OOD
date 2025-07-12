@@ -7,6 +7,9 @@
 Most digit classifiers will confidently assign a label - even when the input is pure noise, a letter, or just a random sketch.
 
 **NOREGRET is different.**  
+
+Checkout the streamlit application here :  https://noregret-cnn.streamlit.app/
+
 It’s a digit classifier that refuses to guess when it's uncertain.  
 Unlike traditional models, it includes a rejection mechanism that avoids overconfident misclassification of out-of-distribution inputs.
 
