@@ -1,19 +1,24 @@
-# NOREGRET : *A digit classifier that knows when to stay silent.*
+# NOREGRET-CNN : *A digit classifier that knows when to stay silent.*
 
 
 
 
 ## Overview
+Most digit classifiers will confidently assign a label - even when the input is pure noise, a letter, or just a random sketch.
 
-Most digit classifiers will confidently assign a label , even when the input is pure noise, a letter, or just a random sketch.
-
-**NOREGRET** is different.  
-It’s a digit classifier that refuses to guess when it's uncertain.
+**NOREGRET is different.**  
+It’s a digit classifier that refuses to guess when it's uncertain.  
+Unlike traditional models, it includes a rejection mechanism that avoids overconfident misclassification of out-of-distribution inputs.
 
 Built on MNIST, NOREGRET uses calibrated confidence and embedding-based reasoning to reject inputs that don't resemble any known digit.
 
----
+This project combines:
+- A lightweight **Convolutional Neural Network (CNN)**  
+- **Embedding-based** prototype comparison  
+- **Beta-distribution-based** confidence modeling  
+- A simple Streamlit interface for drawing digits and testing
 
+---
 ##  What Makes It Different
 
 ✅ CNN trained on MNIST  
