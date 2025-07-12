@@ -1,9 +1,9 @@
-# NOREGRET  
-*A digit classifier that knows when to stay silent.*
+# NOREGRET : *A digit classifier that knows when to stay silent.*
 
----
 
-## 🧠 Overview
+
+
+## Overview
 
 Most digit classifiers will confidently assign a label , even when the input is pure noise, a letter, or just a random sketch.
 
@@ -51,12 +51,29 @@ Even a small model can learn when to say,
 
 ## Tech Stack
 
-- PyTorch  
+- Tensorflow  
 - Scikit-learn  
 - NumPy  
 - Matplotlib
 
 ---
 
-## 📁 Project Structure
+## ⚙️ How It Works
+
+1. Train a simple CNN on MNIST  
+2. Apply **Beta Calibration** to output probabilities  
+3. Extract embedding from the penultimate layer  
+4. Compute **cosine similarity** to pre-computed **class prototypes** (centroids)  
+5. If similarity is low **or** confidence is below a threshold → **reject**
+
+---
+
+## 💡 Future Directions
+
+- Generalize to other datasets (letters, symbols, multi-modal inputs)  
+- Apply to real-world digit inputs (handwritten forms, tablets)  
+- Extend to multi-class classifiers beyond digits  
+- Visualize embedding space in real time
+
+---
 
