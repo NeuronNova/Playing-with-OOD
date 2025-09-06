@@ -4,7 +4,7 @@
 
 
 ## Overview
-Most digit classifiers will confidently assign a label - even when the input is pure noise, a letter, or just a random sketch. This project aims to go beyond that . It aims to build a classifier that not only is capable of classifying inputs but would also be able to classify OOD inputs correctly.
+Most digit classifiers will confidently assign a label - even when the input is pure noise, a letter, or just a random sketch. This project aims to go beyond that . It aims to build a classifier that is not only capable of classifying inputs but also  able to classify OOD inputs correctly by rejecting them
 
 Checkout the streamlit application here :  https://noregret-cnn.streamlit.app/
 
