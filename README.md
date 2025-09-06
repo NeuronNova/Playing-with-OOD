@@ -4,9 +4,7 @@
 
 
 ## Overview
-Most digit classifiers will confidently assign a label - even when the input is pure noise, a letter, or just a random sketch.
-
-**NOREGRET is different.**  
+Most digit classifiers will confidently assign a label - even when the input is pure noise, a letter, or just a random sketch. This project aims to go beyond that . It aims to build a classifier that not only is capable of classifying inputs but would also be able to classify OOD inputs correctly.
 
 Checkout the streamlit application here :  https://noregret-cnn.streamlit.app/
 
@@ -22,15 +20,31 @@ This project combines:
 - A simple Streamlit interface for drawing digits and testing
 
 ---
+
+## OOD Rejection Comparison
+
+Out-of-distribution (OOD) detection is a core feature of NOREGRET-CNN.  
+We evaluated two strategies on **EMNIST Letters (A-Z)**:
+
+| Method                   | Rejection Rate | Visualization | Notes |
+|---------------------------|----------------|---------------|---------------|
+| KNN-based distance              | 79.6%          | ████████████████████████░░░░ (79.6%) |Rejects samples based only on distance to nearest neighbors in the training set. Simple and intuitive, but sensitive to normalization and thresholds.
+| Prototype-based Rejection | 83.0%          | █████████████████████████░░░ (83.0%) |Rejects samples if **distance to class prototype** is high **or** **beta-calibrated confidence** is low. Adds principled uncertainty modeling while retaining interpretability
+
+> ⚡ **Key Takeaways:**  
+> - Both methods leverage CNN embeddings to detect unfamiliar inputs.  
+> - **KNN** is a naive distance-based approach — works reasonably but lacks explicit uncertainty modeling.  
+> - **Prototype-based rejection** builds on the same idea but introduces **class prototypes and beta-calibrated confidence**, making the rejection decision **robust, principled, and interpretable**.  
+> - The slightly higher rejection rate (83% vs 79.6%) demonstrates improved coverage of OOD inputs.  
+
+---
 ##  What Makes It Different
 
-✅ CNN trained on MNIST  
+CNN trained on MNIST  
 1. **Beta Calibration** to reduce overconfidence  
 2. **Intermediate embeddings** extracted from the model  
 3. **Cosine similarity** to class prototypes  
 4. Rejects inputs that are far from any known digit cluster or have low confidence
-
-The goal: don't force predictions — **know when not to classify**.
 
 ---
 
